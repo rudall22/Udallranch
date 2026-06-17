@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Udall Land & Livestock | White Mountains, Arizona</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #F2EBD9;
+      --parchment:#E8DCC4;
+      --olive:    #5C6B35;
+      --olive-dk: #3D4A22;
+      --brown:    #1C1208;
+      --rust:     #8B4513;
+      --tan:      #C9A96E;
+      --white:    #FDFAF4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--brown);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .brand-mark {
+      width: 38px; height: 38px;
+      border: 2px solid var(--tan);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-mark svg { width: 26px; height: 26px; }
+    .nav-name {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--cream); letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--tan); font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta {
+      background: var(--olive); color: var(--cream) !important;
+      padding: 0.45rem 1.1rem;
+    }
+    .nav-cta:hover { background: var(--olive-dk); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--cream); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--brown);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+      padding-top: 64px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(28,18,8,0.92) 0%, rgba(28,18,8,0.6) 60%, rgba(92,107,53,0.4) 100%);
+      z-index: 1;
+    }
+    .hero-img-placeholder {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 60%, rgba(92,107,53,0.25) 0%, transparent 60%),
+        linear-gradient(180deg, #2a1f0e 0%, #1C1208 100%);
+    }
+    /* Decorative cattle silhouettes */
+    .hero-cattle {
+      position: absolute; bottom: 0; right: 0;
+      width: 55%; height: 70%;
+      background: var(--olive-dk);
+      clip-path: polygon(5% 100%, 0% 30%, 15% 10%, 35% 5%, 60% 8%, 80% 0%, 100% 5%, 100% 100%);
+      opacity: 0.18; z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--tan); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 36px; height: 1px; background: var(--tan);
+    }
+    .hero-eyebrow::after {
+      content: '★'; font-size: 0.6rem;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700; font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.92; color: var(--cream);
+      text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 0.15em;
+    }
+    .hero h1 .script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.6em; display: block;
+      color: var(--olive); font-weight: 700;
+      line-height: 1.1; letter-spacing: 0.02em;
+      text-transform: none;
+    }
+    .hero-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem; color: var(--parchment);
+      margin: 1.5rem 0 2.5rem; max-width: 440px;
+      line-height: 1.7; font-weight: 300;
+    }
+    .hero-badges {
+      display: flex; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+    }
+    .badge {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tan);
+    }
+    .badge-icon { font-size: 1.2rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--olive); color: var(--cream);
+      padding: 0.9rem 2rem; font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; font-weight: 600;
+      transition: background 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--olive-dk); }
+    .btn-outline {
+      border: 1px solid var(--tan); color: var(--tan);
+      padding: 0.9rem 2rem; font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; font-weight: 600;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-outline:hover { background: var(--tan); color: var(--brown); }
+    .hero-stamp {
+      position: absolute; top: 120px; right: 80px; z-index: 2;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      background: var(--olive-dk);
+      border: 3px solid var(--tan);
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center;
+      padding: 1rem;
+    }
+    .stamp-top {
+      font-family: 'Oswald', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--tan);
+    }
+    .stamp-main {
+      font-family: 'Oswald', sans-serif; font-size: 1rem;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--cream); line-height: 1.1; margin: 0.2rem 0;
+    }
+    .stamp-sub {
+      font-family: 'Oswald', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--tan);
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow {
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--olive); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; text-transform: uppercase; color: var(--brown);
+      line-height: 1; margin-bottom: 0.3em;
+    }
+    .section-title .script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.65em; display: inline;
+      color: var(--olive); font-weight: 700;
+      text-transform: none;
+    }
+    .divider {
+      width: 60px; height: 2px; background: var(--olive);
+      margin: 1.25rem 0 2rem;
+    }
+
+    /* ── VALUES STRIP ── */
+    .values-strip {
+      background: var(--brown); padding: 3rem 2rem;
+    }
+    .values-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .value-item {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 1.5rem 2rem;
+      border-right: 1px solid rgba(201,169,110,0.2);
+    }
+    .value-item:last-child { border-right: none; }
+    .value-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .value-label {
+      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--tan); font-weight: 600;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .about-img {
+      background: var(--parchment);
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .about-img-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--olive-dk) 0%, var(--olive) 50%, var(--brown) 100%);
+      opacity: 0.15;
+    }
+    .about-img-text {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem;
+    }
+    .about-img-icon { font-size: 4rem; }
+    .about-img-caption {
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--olive); opacity: 0.7;
+    }
+    .about-text p {
+      font-size: 1rem; line-height: 1.8; color: #3a2e1e;
+      margin-bottom: 1rem; font-weight: 300;
+    }
+    .about-checklist {
+      margin: 1.5rem 0; list-style: none;
+    }
+    .about-checklist li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.95rem; margin-bottom: 0.6rem;
+      color: var(--brown); font-weight: 400;
+    }
+    .about-checklist li::before {
+      content: '✦'; color: var(--olive); flex-shrink: 0; margin-top: 2px;
+      font-size: 0.7rem;
+    }
+    .tagline {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--olive);
+      border-top: 1px solid var(--olive);
+      padding-top: 1rem; margin-top: 1.5rem;
+    }
+
+    /* ── BEEF SHARES ── */
+    #beef-shares { background: var(--cream); }
+    .shares-intro {
+      max-width: 600px; margin-bottom: 3rem;
+    }
+    .shares-intro p {
+      font-size: 1rem; line-height: 1.8; color: #3a2e1e;
+      font-weight: 300;
+    }
+    .shares-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .share-card {
+      background: var(--white);
+      border: 1px solid var(--parchment);
+      border-top: 4px solid var(--olive);
+      padding: 2rem 1.75rem;
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .share-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(28,18,8,0.12);
+    }
+    .share-card.featured {
+      background: var(--olive-dk);
+      border-top-color: var(--tan);
+      border-color: var(--olive-dk);
+    }
+    .share-badge {
+      font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      background: var(--tan); color: var(--brown);
+      padding: 0.25rem 0.6rem; display: inline-block;
+      margin-bottom: 1rem; align-self: flex-start;
+    }
+    .share-card.featured .share-badge {
+      background: var(--tan); color: var(--brown);
+    }
+    .share-size {
+      font-family: 'Oswald', sans-serif; font-size: 2rem;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--brown); line-height: 1;
+    }
+    .share-card.featured .share-size { color: var(--cream); }
+    .share-size .script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.65em; display: block;
+      color: var(--olive); font-weight: 700;
+      text-transform: none; line-height: 1.2;
+    }
+    .share-card.featured .share-size .script { color: var(--tan); }
+    .share-weight {
+      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--rust); margin: 0.5rem 0 1.25rem;
+    }
+    .share-card.featured .share-weight { color: var(--tan); }
+    .share-features { list-style: none; margin-bottom: 1.5rem; flex: 1; }
+    .share-features li {
+      font-size: 0.9rem; line-height: 1.6;
+      padding: 0.4rem 0; border-bottom: 1px solid var(--parchment);
+      display: flex; align-items: center; gap: 0.5rem;
+      color: #3a2e1e;
+    }
+    .share-card.featured .share-features li {
+      border-bottom-color: rgba(201,169,110,0.2);
+      color: var(--parchment);
+    }
+    .share-features li::before { content: '→'; color: var(--olive); font-size: 0.8rem; }
+    .share-card.featured .share-features li::before { color: var(--tan); }
+    .share-price {
+      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--olive); margin-bottom: 1.25rem;
+    }
+    .share-card.featured .share-price { color: var(--tan); }
+    .btn-deposit {
+      background: var(--olive); color: var(--cream);
+      padding: 0.8rem 1.5rem; font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; font-weight: 600;
+      text-align: center; display: block;
+      transition: background 0.2s;
+    }
+    .btn-deposit:hover { background: var(--olive-dk); }
+    .share-card.featured .btn-deposit {
+      background: var(--tan); color: var(--brown);
+    }
+    .share-card.featured .btn-deposit:hover { background: #d4b07a; }
+    .shares-note {
+      margin-top: 2rem; text-align: center;
+      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--olive); opacity: 0.8;
+    }
+
+    /* ── DEPOSIT SECTION ── */
+    #deposit { background: var(--parchment); }
+    .deposit-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .deposit-info h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1.5rem;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--brown); margin-bottom: 1rem;
+    }
+    .deposit-info p {
+      font-size: 0.95rem; line-height: 1.8; color: #3a2e1e;
+      font-weight: 300; margin-bottom: 1rem;
+    }
+    .deposit-steps {
+      list-style: none; margin-top: 1.5rem;
+    }
+    .deposit-steps li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .step-num {
+      font-family: 'Oswald', sans-serif; font-size: 1.5rem;
+      font-weight: 700; color: var(--olive); line-height: 1;
+      flex-shrink: 0; width: 32px;
+    }
+    .step-text {
+      font-size: 0.9rem; line-height: 1.6; color: #3a2e1e;
+    }
+    .step-text strong {
+      font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--brown); display: block; margin-bottom: 0.2rem;
+    }
+    .deposit-form-wrap {
+      background: var(--white);
+      padding: 2.5rem;
+      border-top: 4px solid var(--olive);
+    }
+    .deposit-form-wrap h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1.3rem;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--brown); margin-bottom: 1.5rem;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block; font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--olive);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      background: var(--cream); border: 1px solid var(--parchment);
+      font-family: 'Lato', sans-serif; font-size: 0.95rem;
+      color: var(--brown); outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none; border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--olive);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-note {
+      font-size: 0.8rem; color: #888; margin-top: 0.5rem;
+    }
+    .btn-submit {
+      width: 100%; background: var(--olive); color: var(--cream);
+      padding: 1rem; font-family: 'Oswald', sans-serif;
+      font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 700; border: none; cursor: pointer;
+      transition: background 0.2s; margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--olive-dk); }
+    .form-success {
+      display: none; text-align: center; padding: 2rem;
+    }
+    .form-success .check { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h4 {
+      font-family: 'Oswald', sans-serif; font-size: 1.2rem;
+      text-transform: uppercase; color: var(--olive);
+      margin-bottom: 0.5rem;
+    }
+    .form-success p { font-size: 0.9rem; color: #555; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 4rem; align-items: start;
+    }
+    .contact-info { }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .contact-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .contact-label {
+      font-family: 'Oswald', sans-serif; font-size: 0.7rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--olive); margin-bottom: 0.2rem;
+    }
+    .contact-value {
+      font-size: 0.95rem; color: var(--brown);
+    }
+    .contact-form-wrap {
+      background: var(--brown);
+      padding: 2.5rem;
+    }
+    .contact-form-wrap h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1.3rem;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--cream); margin-bottom: 1.5rem;
+    }
+    .dark-form input,
+    .dark-form select,
+    .dark-form textarea {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(201,169,110,0.25);
+      color: var(--cream);
+    }
+    .dark-form input:focus,
+    .dark-form select:focus,
+    .dark-form textarea:focus {
+      border-color: var(--tan);
+    }
+    .dark-form input::placeholder,
+    .dark-form textarea::placeholder { color: rgba(201,169,110,0.4); }
+    .dark-form label { color: var(--tan); }
+    .dark-form select option { background: var(--brown); color: var(--cream); }
+    .btn-submit-dark {
+      width: 100%; background: var(--tan); color: var(--brown);
+      padding: 1rem; font-family: 'Oswald', sans-serif;
+      font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 700; border: none; cursor: pointer;
+      transition: background 0.2s; margin-top: 0.5rem;
+    }
+    .btn-submit-dark:hover { background: #d4b07a; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown); padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .footer-logo-mark {
+      width: 48px; height: 48px;
+      border: 2px solid var(--tan);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-name {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 1.3rem; color: var(--cream);
+      letter-spacing: 0.15em; text-transform: uppercase; text-align: left;
+    }
+    .footer-name span {
+      display: block; font-size: 0.7rem;
+      color: var(--tan); font-weight: 400; letter-spacing: 0.2em;
+    }
+    .footer-tagline {
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--tan); opacity: 0.7; margin-bottom: 2rem;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 2rem;
+      list-style: none; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tan); text-decoration: none; opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-copy {
+      font-size: 0.75rem; color: rgba(201,169,110,0.4);
+      border-top: 1px solid rgba(201,169,110,0.12);
+      padding-top: 1.5rem; margin-top: 0.5rem;
+    }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: fixed;
+        top: 64px; left: 0; right: 0; background: var(--brown);
+        padding: 1.5rem 2rem; gap: 1.25rem; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-cta { display: none !important; }
+      .hamburger { display: flex; }
+      .hero-stamp { display: none; }
+      .about-grid,
+      .deposit-wrap,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .shares-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .value-item { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.2); }
+      .value-item:last-child { border-bottom: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="16,4 4,13 16,22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="22" y1="4" x2="22" y2="22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="nav-name">Udall Land & Livestock</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Our Ranch</a></li>
+      <li><a href="#beef-shares">Beef Shares</a></li>
+      <li><a href="#deposit">Reserve</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#deposit" class="nav-links nav-cta" style="display:inline-block;list-style:none;">Put a Deposit Down</a>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-img-placeholder"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-cattle"></div>
+    <div class="hero-stamp">
+      <div class="stamp-top">Locally Raised</div>
+      <div class="stamp-main">Quality Beef</div>
+      <div class="stamp-sub">You Can Trust</div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">White Mountains, Arizona</div>
+      <h1>
+        Beef
+        <span class="script">for Sale</span>
+      </h1>
+      <p class="hero-sub">
+        Raised on open pasture in the high country of Arizona's White Mountains. 
+        Natural, wholesome beef your family can feel good about — direct from our family to yours.
+      </p>
+      <div class="hero-badges">
+        <div class="badge"><span class="badge-icon">🐄</span> Locally Raised</div>
+        <div class="badge"><span class="badge-icon">🌿</span> Pasture Fed</div>
+        <div class="badge"><span class="badge-icon">✦</span> Family Operated</div>
+      </div>
+      <div class="hero-btns">
+        <a href="#beef-shares" class="btn-primary">View Beef Shares</a>
+        <a href="#about" class="btn-outline">About the Ranch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES STRIP -->
+  <div class="values-strip">
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-icon">🐄</div>
+        <div class="value-label">Well Cared For Cattle</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🌱</div>
+        <div class="value-label">Natural, Wholesome Beef</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-label">Support Local Ranching</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img">
+          <div class="about-img-inner"></div>
+          <div class="about-img-text">
+            <div class="about-img-icon">🏔️</div>
+            <div class="about-img-caption">White Mountains, AZ</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="section-eyebrow">Our Story</div>
+          <h2 class="section-title">The <span class="script">Ranch</span></h2>
+          <div class="divider"></div>
+          <p>
+            Nestled in the high country of Arizona's White Mountains, Udall Land & Livestock is a family operation built on a simple belief: cattle raised right produce beef that tastes right.
+          </p>
+          <p>
+            Our herd grazes on open Arizona pastures, living the way cattle were meant to live. We know our animals by name, manage our land with care, and take pride in every cut we send to your family's table.
+          </p>
+          <ul class="about-checklist">
+            <li>No growth hormones or unnecessary antibiotics</li>
+            <li>Pasture-raised on Arizona's high-country grass</li>
+            <li>Family owned and operated — you're buying direct</li>
+            <li>Processed at a USDA-inspected facility</li>
+            <li>Custom-cut and vacuum sealed for your freezer</li>
+          </ul>
+          <div class="tagline">Raised Right. Quality You Can Taste.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEEF SHARES -->
+  <section id="beef-shares">
+    <div class="container">
+      <div class="section-eyebrow">Order Direct from the Ranch</div>
+      <h2 class="section-title">Beef <span class="script">Shares</span></h2>
+      <div class="divider"></div>
+      <div class="shares-intro">
+        <p>
+          Buy in bulk and stock your freezer with premium Arizona beef. All shares include custom cuts, vacuum-sealed packaging, and an approximate hanging weight. Contact us for current pricing and availability — we'll confirm your order and collect a deposit to hold your share.
+        </p>
+      </div>
+      <div class="shares-grid">
+
+        <!-- Quarter -->
+        <div class="share-card">
+          <div class="share-badge">Best for Smaller Families</div>
+          <div class="share-size">¼ <span class="script">Beef</span></div>
+          <div class="share-weight">~100–125 lbs of finished beef</div>
+          <ul class="share-features">
+            <li>Ground beef & stew meat</li>
+            <li>Roasts & brisket</li>
+            <li>Steaks (ribeye, sirloin, etc.)</li>
+            <li>Vacuum sealed &amp; labeled</li>
+            <li>Fits a standard chest freezer</li>
+          </ul>
+          <div class="share-price">Contact us for pricing</div>
+          <a href="#deposit" class="btn-deposit">Put a Deposit Down</a>
+        </div>
+
+        <!-- Half — featured -->
+        <div class="share-card featured">
+          <div class="share-badge">Most Popular</div>
+          <div class="share-size">½ <span class="script">Beef</span></div>
+          <div class="share-weight">~200–250 lbs of finished beef</div>
+          <ul class="share-features">
+            <li>Full selection of cuts</li>
+            <li>Ground beef, roasts & brisket</li>
+            <li>Premium steaks — ribeye, NY strip, T-bone</li>
+            <li>Short ribs, flank, skirt &amp; more</li>
+            <li>Vacuum sealed &amp; labeled</li>
+          </ul>
+          <div class="share-price">Contact us for pricing</div>
+          <a href="#deposit" class="btn-deposit">Put a Deposit Down</a>
+        </div>
+
+        <!-- Whole -->
+        <div class="share-card">
+          <div class="share-badge">Best Value</div>
+          <div class="share-size">Whole <span class="script">Beef</span></div>
+          <div class="share-weight">~400–500 lbs of finished beef</div>
+          <ul class="share-features">
+            <li>Complete custom cut selection</li>
+            <li>Maximum variety &amp; quantity</li>
+            <li>Lowest price per pound</li>
+            <li>Vacuum sealed &amp; labeled</li>
+            <li>Ideal for large families or groups</li>
+          </ul>
+          <div class="share-price">Contact us for pricing</div>
+          <a href="#deposit" class="btn-deposit">Put a Deposit Down</a>
+        </div>
+
+      </div>
+      <p class="shares-note">★ All beef is processed at a USDA-inspected facility · Pricing varies by season — contact us for current availability ★</p>
+    </div>
+  </section>
+
+  <!-- DEPOSIT -->
+  <section id="deposit">
+    <div class="container">
+      <div class="section-eyebrow">Secure Your Beef</div>
+      <h2 class="section-title">Place a <span class="script">Deposit</span></h2>
+      <div class="divider"></div>
+      <div class="deposit-wrap">
+        <div class="deposit-info">
+          <h3>How It Works</h3>
+          <p>
+            Our beef sells out fast. A deposit holds your share and locks in your spot before processing day. 
+            Here's what to expect after you submit your deposit request:
+          </p>
+          <ol class="deposit-steps">
+            <li>
+              <div class="step-num">01</div>
+              <div class="step-text">
+                <strong>Submit this form</strong>
+                Tell us which share size you want and your preferred contact method.
+              </div>
+            </li>
+            <li>
+              <div class="step-num">02</div>
+              <div class="step-text">
+                <strong>We'll reach out</strong>
+                We'll contact you within 1–2 business days to confirm availability, discuss pricing, and collect your deposit.
+              </div>
+            </li>
+            <li>
+              <div class="step-num">03</div>
+              <div class="step-text">
+                <strong>Deposit collected</strong>
+                A deposit secures your beef share. The balance is due at pickup or delivery.
+              </div>
+            </li>
+            <li>
+              <div class="step-num">04</div>
+              <div class="step-text">
+                <strong>Pick up your beef</strong>
+                We'll let you know when your order is ready. Pickup in the White Mountains area; local delivery may be available.
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="deposit-form-wrap">
+          <h3>Reserve Your Share</h3>
+          <div id="depositSuccess" class="form-success">
+            <div class="check">✅</div>
+            <h4>Request Received!</h4>
+            <p>We'll be in touch within 1–2 business days to confirm your share and collect the deposit. Thank you for supporting Udall Land & Livestock!</p>
+          </div>
+          <form id="depositForm" onsubmit="submitDeposit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="d-first">First Name *</label>
+                <input type="text" id="d-first" required placeholder="Jane" />
+              </div>
+              <div class="form-group">
+                <label for="d-last">Last Name *</label>
+                <input type="text" id="d-last" required placeholder="Smith" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="d-email">Email Address *</label>
+              <input type="email" id="d-email" required placeholder="jane@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="d-phone">Phone Number</label>
+              <input type="tel" id="d-phone" placeholder="(555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="d-share">Share Size *</label>
+              <select id="d-share" required>
+                <option value="">— Select a share —</option>
+                <option value="quarter">¼ Beef (~100–125 lbs)</option>
+                <option value="half">½ Beef (~200–250 lbs)</option>
+                <option value="whole">Whole Beef (~400–500 lbs)</option>
+                <option value="unsure">Not sure yet — need more info</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="d-notes">Questions or Notes</label>
+              <textarea id="d-notes" placeholder="Preferred cut instructions, questions about pricing, delivery area, etc."></textarea>
+            </div>
+            <p class="form-note">* We'll contact you to discuss deposit amount and payment options before any charge is made.</p>
+            <button type="submit" class="btn-submit">Submit Reservation Request →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Contact <span class="script">Us</span></h2>
+      <div class="divider"></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p style="font-size:1rem;line-height:1.8;color:#3a2e1e;font-weight:300;margin-bottom:2rem;">
+            Have questions about our beef, our ranch, or how shares work? We'd love to hear from you. 
+            We're a family operation — you'll hear back from us directly, not a call center.
+          </p>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">White Mountains, Arizona</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-label">Phone / Text</div>
+              <div class="contact-value">Message us for pricing &amp; availability</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">info@udalllandandlivestock.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-label">Response Time</div>
+              <div class="contact-value">Within 1–2 business days</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <h3 style="color:var(--cream);">Send Us a Message</h3>
+          <div id="contactSuccess" class="form-success" style="color:var(--cream);">
+            <div class="check">✅</div>
+            <h4 style="color:var(--tan);">Message Sent!</h4>
+            <p style="color:var(--parchment);">Thanks for reaching out! We'll get back to you within 1–2 business days.</p>
+          </div>
+          <form id="contactForm" class="dark-form" onsubmit="submitContact(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name">Your Name *</label>
+                <input type="text" id="c-name" required placeholder="Jane Smith" />
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email *</label>
+                <input type="email" id="c-email" required placeholder="jane@example.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-subject">Subject</label>
+              <select id="c-subject">
+                <option value="">— What can we help with? —</option>
+                <option>Beef share availability</option>
+                <option>Pricing information</option>
+                <option>Pickup / delivery questions</option>
+                <option>General inquiry</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="c-message">Message *</label>
+              <textarea id="c-message" required placeholder="Ask us anything about our ranch, our beef, or how to get started..." style="min-height:120px;"></textarea>
+            </div>
+            <button type="submit" class="btn-submit-dark">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="footer-logo-mark">
+        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+          <polyline points="16,4 4,13 16,22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="22" y1="4" x2="22" y2="22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="footer-name">
+        Udall Land & Livestock
+        <span>White Mountains, Arizona</span>
+      </div>
+    </div>
+    <div class="footer-tagline">Raised Right. Quality You Can Taste.</div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Our Ranch</a></li>
+      <li><a href="#beef-shares">Beef Shares</a></li>
+      <li><a href="#deposit">Reserve</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Udall Land & Livestock · White Mountains, Arizona · All rights reserved.</div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('#navLinks a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Smooth scroll nav highlight
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id], div[id="home"]');
+      const links = document.querySelectorAll('.nav-links a');
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      links.forEach(l => {
+        l.style.color = l.getAttribute('href') === '#' + current ? 'var(--cream)' : '';
+      });
+    });
+
+    function submitDeposit(e) {
+      e.preventDefault();
+      // In production, post to a form backend (Netlify Forms, Formspree, etc.)
+      document.getElementById('depositForm').style.display = 'none';
+      document.getElementById('depositSuccess').style.display = 'block';
+    }
+
+    function submitContact(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
