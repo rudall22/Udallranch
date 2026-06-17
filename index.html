@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Udall Land & Livestock | White Mountains, Arizona</title>
+  <title>Udall Ranch | White Mountains, Arizona</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
@@ -228,6 +228,18 @@
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--tan); font-weight: 600;
     }
+
+    /* ── ABOUT PHOTOS ── */
+    .about-photos {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .about-photo-top img,
+    .about-photo-bottom img {
+      width: 100%; display: block;
+      object-fit: cover;
+    }
+    .about-photo-top img { height: 280px; }
+    .about-photo-bottom img { height: 200px; }
 
     /* ── ABOUT ── */
     #about { background: var(--white); }
@@ -599,12 +611,15 @@
   <nav>
     <div class="nav-brand">
       <div class="brand-mark">
-        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="16,4 4,13 16,22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="22" y1="4" x2="22" y2="22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round"/>
+        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="42" height="42">
+          <!-- Chevron / left angle -->
+          <line x1="28" y1="6" x2="8" y2="30" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+          <line x1="8" y1="30" x2="28" y2="54" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+          <!-- R letter - rotated 90deg counterclockwise -->
+          <text x="22" y="35" font-family="serif" font-size="38" font-weight="700" fill="#C9A96E" dominant-baseline="middle" text-anchor="start" transform="rotate(-90, 34, 30)">R</text>
         </svg>
       </div>
-      <span class="nav-name">Udall Land & Livestock</span>
+      <span class="nav-name">Udall Ranch</span>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Our Ranch</a></li>
@@ -620,9 +635,8 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <div class="hero-img-placeholder"></div>
+    <div class="hero-img-placeholder" style="background-image: url('FullSizeRender.jpeg'); background-size: cover; background-position: center 40%;"></div>
     <div class="hero-bg"></div>
-    <div class="hero-cattle"></div>
     <div class="hero-stamp">
       <div class="stamp-top">Locally Raised</div>
       <div class="stamp-main">Quality Beef</div>
@@ -672,11 +686,12 @@
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-img">
-          <div class="about-img-inner"></div>
-          <div class="about-img-text">
-            <div class="about-img-icon">🏔️</div>
-            <div class="about-img-caption">White Mountains, AZ</div>
+        <div class="about-photos">
+          <div class="about-photo-top">
+            <img src="IMG_2049.jpeg" alt="The Udall family at the ranch" />
+          </div>
+          <div class="about-photo-bottom">
+            <img src="IMG_2043.jpeg" alt="Cattle grazing in the White Mountains" />
           </div>
         </div>
         <div class="about-text">
@@ -684,7 +699,7 @@
           <h2 class="section-title">The <span class="script">Ranch</span></h2>
           <div class="divider"></div>
           <p>
-            Nestled in the high country of Arizona's White Mountains, Udall Land & Livestock is a family operation built on a simple belief: cattle raised right produce beef that tastes right.
+            Nestled in the high country of Arizona's White Mountains, Udall Ranch is a family operation built on a simple belief: cattle raised right produce beef that tastes right.
           </p>
           <p>
             Our herd grazes on open Arizona pastures, living the way cattle were meant to live. We know our animals by name, manage our land with care, and take pride in every cut we send to your family's table.
@@ -817,7 +832,7 @@
           <div id="depositSuccess" class="form-success">
             <div class="check">✅</div>
             <h4>Request Received!</h4>
-            <p>We'll be in touch within 1–2 business days to confirm your share and collect the deposit. Thank you for supporting Udall Land & Livestock!</p>
+            <p>We'll be in touch within 1–2 business days to confirm your share and collect the deposit. Thank you for supporting Udall Ranch!</p>
           </div>
           <form id="depositForm" onsubmit="submitDeposit(event)">
             <div class="form-row">
@@ -945,13 +960,14 @@
   <footer>
     <div class="footer-brand">
       <div class="footer-logo-mark">
-        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-          <polyline points="16,4 4,13 16,22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="22" y1="4" x2="22" y2="22" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round"/>
+        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="42" height="42">
+          <line x1="28" y1="6" x2="8" y2="30" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+          <line x1="8" y1="30" x2="28" y2="54" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+          <text x="22" y="35" font-family="serif" font-size="38" font-weight="700" fill="#C9A96E" dominant-baseline="middle" text-anchor="start" transform="rotate(-90, 34, 30)">R</text>
         </svg>
       </div>
       <div class="footer-name">
-        Udall Land & Livestock
+        Udall Ranch
         <span>White Mountains, Arizona</span>
       </div>
     </div>
@@ -963,7 +979,7 @@
       <li><a href="#deposit">Reserve</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="footer-copy">© 2025 Udall Land & Livestock · White Mountains, Arizona · All rights reserved.</div>
+    <div class="footer-copy">© 2025 Udall Ranch · White Mountains, Arizona · All rights reserved.</div>
   </footer>
 
   <script>
